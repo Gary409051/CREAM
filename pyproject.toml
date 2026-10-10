@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cream-research"
+version = "0.1.0.dev0"
+description = "Research scaffold for Counterfactual Residual Expression Analysis and Mapping"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = []
+# Licensing is intentionally omitted until the owner resolves LICENSE_DECISION.md.
+# This package name is local metadata, not a claimed registry reservation.
+
+[tool.setuptools.packages.find]
+where = ["src"]

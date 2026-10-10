@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CREAM private recording manifest row",
+  "description": "Shape only; rights, pairing, hashes, paths and splits require semantic validation.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "recording_id", "corpus", "corpus_version", "relative_path", "sha256",
+    "speaker_id", "language", "dialect", "text_group_id", "semantic_group_id",
+    "expression_label", "label_provenance", "neutral_pair_id", "pair_audit_status",
+    "session_id", "sample_rate_hz", "duration_seconds", "split", "qc_status",
+    "qc_reasons", "rights_record_id"
+  ],
+  "properties": {
+    "recording_id": {"type": "string", "minLength": 1},
+    "corpus": {"type": "string", "minLength": 1},
+    "corpus_version": {"type": "string", "minLength": 1},
+    "relative_path": {"type": "string", "minLength": 1},
+    "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "speaker_id": {"type": "string", "minLength": 1},
+    "language": {"type": "string", "minLength": 1},
+    "dialect": {"type": ["string", "null"]},
+    "text_group_id": {"type": "string", "minLength": 1},
+    "semantic_group_id": {"type": ["string", "null"]},
+    "expression_label": {"type": ["string", "null"]},
+    "label_provenance": {"type": "string", "minLength": 1},
+    "neutral_pair_id": {"type": ["string", "null"]},
+    "pair_audit_status": {"enum": ["verified", "unavailable", "pending", "not_applicable"]},
+    "session_id": {"type": ["string", "null"]},
+    "sample_rate_hz": {"type": "integer", "minimum": 1},
+    "duration_seconds": {"type": "number", "exclusiveMinimum": 0},
+    "split": {"enum": ["train", "development", "test", "support", "quarantine", "unassigned"]},
+    "qc_status": {"enum": ["pending", "accepted", "excluded"]},
+    "qc_reasons": {"type": "array", "items": {"type": "string"}},
+    "rights_record_id": {"type": "string", "minLength": 1}
+  }
+}

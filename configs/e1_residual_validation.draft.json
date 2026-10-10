@@ -1,0 +1,62 @@
+{
+  "experiment_id": "E1",
+  "title": "Expressive Residual Validation",
+  "protocol_version": "0.1",
+  "status": "draft_not_preregistered",
+  "frozen": false,
+  "numeric_values_are_candidates": true,
+  "languages": ["en", "zh-Mandarin"],
+  "directions": ["en_to_zh", "zh_to_en"],
+  "primary_labels": ["happy", "angry", "sad", "surprise"],
+  "neutral_is_primary_class": false,
+  "reference_regime": "predicted_with_training_partition_target_neutral_only_adaptation",
+  "test_speaker_neutral_support_allowed": false,
+  "target_expressive_labels_for_fitting_allowed": false,
+  "dataset": {
+    "candidate": "ESD",
+    "acquisition_status": "not_acquired",
+    "rights_approval_record": null,
+    "version": null,
+    "private_manifest_sha256": null
+  },
+  "split": {
+    "speaker_proportions": [0.6, 0.2, 0.2],
+    "text_proportions": [0.6, 0.2, 0.2],
+    "rule": "crossed_speaker_and_text_partitions_off_diagonal_quarantined",
+    "split_sha256": null,
+    "retained_cluster_counts": null
+  },
+  "comparisons": {
+    "primary": {"candidate": "R2-P", "comparator": "R0"},
+    "secondary": ["R2-P_vs_R1", "R2-P_vs_N1", "R2-O_reference_diagnostic"],
+    "controls": ["wrong_text_reference", "shuffled_training_labels", "independent_neutral_repeats_if_available"]
+  },
+  "seeds": [13, 37, 73],
+  "measurement": {
+    "channels": ["log_f0", "log_energy", "duration_log_ratio", "voice_quality"],
+    "extractor": null,
+    "aligner": null,
+    "reference_predictor": null,
+    "classifier": null,
+    "qc_frozen": false,
+    "candidate_pair_alignment_acceptance_min": 0.95,
+    "candidate_median_valid_voiced_f0_coverage_min": 0.8
+  },
+  "inference": {
+    "primary_metric": "macro_uar_non_neutral",
+    "candidate_min_absolute_uar_gain": 0.03,
+    "bootstrap": "paired_crossed_speaker_text_product_weights",
+    "bootstrap_draws": 10000,
+    "directional_two_sided_confidence": 0.975,
+    "primary_family_size": 2,
+    "secondary_correction": "Holm",
+    "secondary_alpha": 0.05,
+    "success_requires_both_directions": true,
+    "candidate_power_target": 0.8,
+    "power_analysis": null,
+    "sample_size_plan": null
+  },
+  "environment_lock_sha256": null,
+  "approved_by": null,
+  "registration_timestamp": null
+}

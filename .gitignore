@@ -1,0 +1,61 @@
+# Local Python/build/editor artifacts
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+dist/
+*.egg-info/
+.DS_Store
+.idea/
+.vscode/
+
+# Secrets and private records
+.env
+.env.*
+!.env.example
+*.private.*
+/local/
+
+# Real data are excluded; retain empty layout only.
+/data/raw/*
+!/data/raw/.gitkeep
+/data/interim/*
+!/data/interim/.gitkeep
+/data/processed/*
+!/data/processed/.gitkeep
+/data/external/*
+!/data/external/.gitkeep
+/data/manifests/*
+!/data/manifests/README.md
+!/data/manifests/manifest.schema.json
+
+# Local outputs; publish only reviewed reports.
+/experiments/runs/*
+!/experiments/runs/.gitkeep
+/checkpoints/
+/outputs/
+/logs/
+
+# Avoid accidental audio, feature and model uploads anywhere.
+*.wav
+*.flac
+*.mp3
+*.ogg
+*.m4a
+*.npy
+*.npz
+*.parquet
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+
+# Notebook execution caches
+.ipynb_checkpoints/

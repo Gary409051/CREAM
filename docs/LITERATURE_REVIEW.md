@@ -1,0 +1,42 @@
+# Literature Review and Evidence Register
+
+Version 0.1 · source checks: 2026-10-10 · **targeted initial review, not a systematic review or replication**.
+
+The unchanged [v1 manuscript](../LECR_Research_Manuscript_v1.md) has eleven references. This register records what could be checked during initialization and what still needs full reading. “Verified” means the linked primary record, abstract or text was accessible and consistent with the stated narrow point; it does not mean experiments were independently reproduced, model weights were obtained, or release permissions were accepted.
+
+## Initial evidence matrix
+
+| Source | Checked evidence and relevance | What it does not establish for CREAM | Check depth |
+| --- | --- | --- | --- |
+| Eyben et al., *The Geneva Minimalistic Acoustic Parameter Set (GeMAPS) for Voice Research and Affective Computing*, IEEE TAFFC, 2016, DOI 10.1109/TAFFC.2015.2457417; [author-hosted text](https://lab-msp.com/MSP/publications/Eyben_2016.pdf) | Standardized acoustic parameter selection supplies a reproducible feature reference | Features are not unique emotion factors; extraction implementation rights must be checked separately | Primary text accessible; feature implementation/version audit pending |
+| Suni et al., *Wavelets for intonation modeling in HMM speech synthesis*, SSW 2013; [ISCA paper](https://www.isca-archive.org/ssw_2013/suni13_ssw.pdf) | CWT models intonation at multiple time scales | Wavelet use is prior art; it does not validate conditioned expression residuals | Paper accessed; full experimental replication pending |
+| Luo, Takiguchi and Ariki, *Emotional Voice Conversion Using Neural Networks with Different Temporal Scales of F0 based on Wavelet Transform*, SSW 2016, pp. 140–145, DOI 10.21437/SSW.2016-23; [ISCA record](https://www.isca-archive.org/ssw_2016/luo16_ssw.html) | Prior emotional voice conversion using multiscale F0 | No CREAM novelty claim for multiscale F0 alone | Primary abstract/bibliography checked |
+| Ma et al., *emotion2vec: Self-Supervised Pre-Training for Speech Emotion Representation*, Findings of ACL 2024, pp. 15747–15760, DOI 10.18653/v1/2024.findings-acl.931; [ACL record](https://aclanthology.org/2024.findings-acl.931/) | Frame/utterance self-supervision and reported multilingual emotion recognition motivate a learned-representation comparator | Recognition utility does not establish interpretable reconstruction or emotion universality | Primary abstract/bibliography checked; checkpoint overlap/terms pending |
+| Seamless Communication et al., *Seamless: Multilingual Expressive and Streaming Speech Translation*, 2023; [arXiv 2312.05187](https://arxiv.org/abs/2312.05187) | Expressive translation already addresses voice style, rate and pauses | CREAM is not the first expressive translator; component attribution needs matched systems | Primary record/abstract checked; external-system reproduction pending |
+| Zhou, Sisman, Liu and Li, *Emotional Voice Conversion: Theory, Databases and ESD*, Speech Communication 137 (2022), pp. 1–18; [author preprint](https://arxiv.org/abs/2105.14762), [official corpus repository](https://github.com/HLTSingapore/Emotional-Speech-Data) | A candidate corpus with neutral and acted expression recordings in English and Mandarin | File numbering is not proof of translation equivalence; usable pairs and permissions need direct audit | Primary abstract and corpus README checked; no recordings acquired |
+| Shi et al., *AffectCodec: Emotion-Preserving Neural Speech Codec for Expressive Speech Modeling*, Findings of ACL 2026, pp. 9102–9124, DOI 10.18653/v1/2026.findings-acl.442; [ACL record](https://aclanthology.org/2026.findings-acl.442/) | The authors report emotion-guided codec preservation under compression | Codec preservation does not prove cross-language semantic-event expression transfer | Primary abstract/bibliography checked; results not independently reproduced |
+| Tsai et al., *Toward Human-Aligned Judgement of Speech Emotion Similarity*, submitted 2026-09-26; [arXiv 2609.32504v1](https://arxiv.org/abs/2609.32504v1) | Preprint proposes SES-Bench and a learned judge based on human reference/candidate comparisons | Automatic judges are secondary; cross-language validity, releases and independence need audit | Primary abstract/version checked; preprint, not presumed peer reviewed |
+| Ringeval et al., *Introducing the RECOLA Multimodal Corpus of Remote Collaborative and Affective Interactions*, 2013; [official corpus paper](https://recola.human-ist.ch/data/emoSPACE13_RECOLA_Database.pdf) | French collaborative-interaction corpus is a possible continuous-affect resource | It is not an English–Mandarin translation or neutral/expressive paired corpus | Primary paper record/abstract checked; access and annotations pending |
+
+## Citation audit of v1
+
+The records above cover v1 references [2], [4], [5], [6], [7], [8] and [11]. Additional Suni and RECOLA entries help define historical and dataset scope. References [1], [3], [9] and [10] remain a reading/verification queue, with source-access limitations recorded rather than inferred findings:
+
+| v1 reference | Candidate primary record | Initialization finding / next action |
+| --- | --- | --- |
+| [1] Scherer (2003), *Vocal communication of emotion: A review of research paradigms* | [DOI 10.1016/S0167-6393(02)00084-5](https://doi.org/10.1016/S0167-6393(02)00084-5) | Retrieval failed in this check; obtain authoritative text and verify the attribution chain before quoting |
+| [3] Khorram and Mower Provost, *Jointly Aligning and Predicting Continuous Emotion Annotations* | [DOI 10.1109/TAFFC.2019.2917047](https://doi.org/10.1109/TAFFC.2019.2917047) | DOI redirected to IEEE, but substantive text unavailable; verify bibliographic details and delay-alignment method |
+| [9] Liu, Chen and Schiller (2022), *Context Matters for Tone and Intonation Processing in Mandarin* | [DOI 10.1177/0023830920986174](https://doi.org/10.1177/0023830920986174) | Retrieval failed; read and verify the specific tone/intonation interpretation |
+| [10] Liu et al. (2026), *Universal and Language-Specific Influences on Emotional Prosody Production* | [candidate publisher page](https://www.sciencedirect.com/science/article/abs/pii/S016763932600124X) | Publisher retrieval failed; full author list, title, bibliographic status and claim remain unverified here |
+
+Failed retrieval is not evidence that a citation is false. Conversely, presence in the original manuscript is not sufficient verification. Keep the originals intact; correct a future manuscript revision only after obtaining the primary evidence.
+
+## Novelty boundary and nearest-prior-work search
+
+The proposed contribution is a testable combination of conditioned neutral reference estimation, structured residuals, temporal coupling and target-language event rendering. Its novelty is **provisional**. Neutral-centered speaker normalization, reference-conditioned prosody transfer, residual prediction and disentanglement may already overlap substantially; a novelty claim must compare these mechanisms, not just names.
+
+Initial search queries used: `speech expressive translation SeamlessExpressive paper 2023`; `eGeMAPS Geneva minimalistic acoustic parameter set affective computing paper`; `prosody wavelet speech synthesis Suni 2013 continuous wavelet`; targeted official RECOLA, ESD and Seamless licensing searches. Primary records were checked directly. This small search has no comprehensive coverage guarantee or final literature cutoff.
+
+Before registration/submission, expand searches in ACL Anthology, ISCA Archive, IEEE, publisher databases and arXiv. Candidate queries: `neutral reference prosody residual`; `speaker normalized emotional prosody`; `counterfactual speech emotion disentanglement`; `cross lingual prosody transfer semantic alignment`; `tone expressive speech synthesis constraints`. Log exact query/date/database, hits, inclusion/exclusion reasons, duplicate resolution, full-text access, model/data release and negative findings. Use backward/forward citation tracing from nearest approaches.
+
+For each retained study record: task/languages, data and speaker/text split, reference/calibration access, model capacity, expression/intelligibility endpoints, leakage controls, uncertainty, license and reproducibility. Assign a full-text reviewer before treating an abstract-level result as a settled methodological basis. The current register is an evidence starting point; it supports no “world first” claim.
